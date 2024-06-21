@@ -1,5 +1,5 @@
 const db = require('../DB/models');
-const model = require("../DB/models/vehiculo")(db.sequelize, db.Sequelize);
+const model = require("../DB/models/vehiculos")(db.sequelize, db.Sequelize);
 
 module.exports.GetVehiculos = async () => {
     const response = await model.findAll();
@@ -12,7 +12,7 @@ module.exports.GetVehiculosById = async (id) => {
 };
 
 module.exports.CreateVehiculos = async (data) => {
-    const response = await db.Vehiculo.create(data);
+    const response = await db.Vehiculos.create(data);
     return {
         message: 'Vehículo creado con éxito',
         data: response

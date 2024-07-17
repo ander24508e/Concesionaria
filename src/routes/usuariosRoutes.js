@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
     try {
-        let user = await UserController.CreateUser({ name, email, password: hashedPassword });
+        let user = await UserController.CreateUser({ name, emaiol, password: hashedPassword });
         res.status(201).send(`Usuario ${name} registrado correctamente! ID: ${user.id}`);
     } catch (error) {
         res.status(500).send("Error registering user.");

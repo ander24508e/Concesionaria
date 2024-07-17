@@ -9,6 +9,7 @@ const especificaciones = require('./routes/especificacionesRoutes');
 const fabricantes = require('./routes/fabricantesRoutes');
 const usuarios = require('./routes/usuariosRoutes');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 // Middleware para autenticar usuarios
 const authenticateJWT = (req, res, next) => {
@@ -33,6 +34,10 @@ app.use("/vehiculos", vehiculo);
 app.use("/especificar", especificaciones);
 app.use("/fabricar", fabricantes);
 app.use('/auth', usuarios);
+
+app.get('/login', (req,res) => {
+    res.sendFile(path.join(__dirname, "views", "index.html"))
+});
 
 app.listen(port, () =>{
     console.log("El servidor", port, "se ha iniciado exitosamente.")

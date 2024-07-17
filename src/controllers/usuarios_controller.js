@@ -1,4 +1,5 @@
-const db = require("../models");
+const db = require("../DB/models");
+const model = require('../DB/models/usuarios')(db.sequelize, db.Sequelize);
 
 module.exports.CreateUser = async (data) => {
     try {

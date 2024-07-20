@@ -3,234 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>concesionaria-login</title>
     <meta name="google-signin-client_id" content="129581513867-bclrl11aah57s2av5k9mcbm1p8dipns1.apps.googleusercontent.com">
     <style>
-        body,
-        .signin {
-          background-color: #d3d3d3;
-          font-family: 'Montserrat', sans-serif;
-          color: #fff;
-          font-size: 14px;
-          letter-spacing: 1px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #050505;
+            background-image: url('https://e0.pxfuel.com/wallpapers/821/784/desktop-wallpaper-a200-dealer-mercedes-benz.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .login {
-          position: relative;
-          height: 560px;
-          width: 405px;
-          margin: auto;
-          padding: 60px 60px;
-          background: url(https://picsum.photos/id/1004/5616/3744) no-repeat center center #505050;   
-          background-size: cover;
-          box-shadow: 0px 30px 60px -5px #000;
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            position: relative;
+            animation: blink 1.5s infinite;
         }
 
-        form {
-          padding-top: 80px;
-        }
-
-        .active {
-          border-bottom: 2px solid #1161ed;
-        }
-
-        .nonactive {
-          color: rgba(255, 255, 255, 0.2);
+        @keyframes blink {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.8);
+            }
         }
 
         h2 {
-          padding-left: 12px;
-          font-size: 22px;
-          text-transform: uppercase;
-          padding-bottom: 5px;
-          letter-spacing: 2px;
-          display: inline-block;
-          font-weight: 100;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            cursor: pointer;
         }
 
-        h2:first-child {
-          padding-left: 0px;
+        .active {
+            border-bottom: 2px solid #1161ed;
+            color: #1161ed;
         }
 
-        span {
-          text-transform: uppercase;
-          font-size: 12px;
-          opacity: 0.4; 
-          display: inline-block;
-          position: relative;
-          top: -65px;
-          transition: all 0.5s ease-in-out;
+        .nonactive {
+            color: rgba(0, 0, 0, 0.5);
         }
 
-        .text {
-          border: none;
-          width: 89%;
-          padding: 10px 20px;
-          display: block;
-          height: 15px;
-          border-radius: 20px;
-          background: rgba(255, 255, 255, 0.1);
-          border: 2px solid rgba(255, 255, 255, 0);
-          overflow: hidden;
-          margin-top: 15px;
-          transition: all 0.5s ease-in-out;
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
-        .text:focus {
-          outline: 0;
-          border: 2px solid rgba(255, 255, 255, 0.5);
-          border-radius: 20px;
-          background: rgba(0, 0, 0, 0);
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
 
-        .text:focus + span {
-          opacity: 0.6;
+        input[type="checkbox"] {
+            margin-left: 0;
         }
 
-        input[type="text"],
-        input[type="password"] {
-          font-family: 'Montserrat', sans-serif;
-          color: #fff;
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1161ed;
+            color: white;
+            cursor: pointer;
         }
 
-        input {
-          display: inline-block;
-          padding-top: 20px;
-          font-size: 14px;
+        .google-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
         }
 
-        h2,
-        span,
-        .custom-checkbox {
-          margin-left: 20px;
+        .google-login img {
+            width: 20px;
+            margin-right: 10px;
         }
 
-       .custom-checkbox {
-  -webkit-appearance: none; /* Compatibilidad con navegadores basados en Webkit */
-  appearance: none; /* Compatibilidad con otros navegadores */
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 8px;
-  border-radius: 2px;
-  display: inline-block;
-  position: relative;
-  top: 6px;
-}
-
-
-        .custom-checkbox:checked {
-          background-color: rgba(17, 97, 237, 1);
-        }
-
-        .custom-checkbox:checked:after {
-          content: '\2714';
-          font-size: 10px;
-          position: absolute;
-          top: 1px;
-          left: 4px;
-          color: #fff;
-        }
-
-        .custom-checkbox:focus {
-          outline: none;
-        }
-
-        label {
-          display: inline-block;
-          padding-top: 10px;
-          padding-left: 5px;
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
         }
 
         .signin {
-          background-color: #1161ed;
-          color: #FFF;
-          width: 100%;
-          padding: 10px 20px;
-          display: block;
-          height: 39px;
-          border-radius: 20px;
-          margin-top: 30px;
-          transition: all 0.5s ease-in-out;
-          border: none;
-          text-transform: uppercase;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
         }
 
-        .signin:hover {
-          background: #4082f5;
-          box-shadow: 0px 4px 35px -5px #4082f5;
-          cursor: pointer;
+        .profile-info {
+            text-align: center;
+            margin-top: 20px;
         }
 
-        .signin:focus {
-          outline: none;
+        .profile-info img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
         }
 
-        hr {
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          top: 85px;
-          position: relative;
-        }
-
-        a {
-          text-align: center;
-          display: block;
-          top: 120px;
-          position: relative;
-          text-decoration: none;
-          color: rgba(255, 255, 255, 0.2);
+        .google-signin-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="login">
-      <h2 class="active"> sign in </h2>
-    
-      <h2 class="nonactive"> sign up </h2>
-      <form>
-        <input type="text" class="text" name="username">
-         <span>username</span>
-    
-        <br>
-        
-        <br>
-    
-        <input type="password" class="text" name="password">
-        <span>password</span>
-        <br>
-    
-        <input type="checkbox" id="checkbox-1-1" class="custom-checkbox" />
-        <label for="checkbox-1-1">Keep me Signed in</label>
-        
-        <button class="signin">
-          Sign In
-        </button>
-        <hr>
-        <a href="#">Forgot Password?</a>
-      </form>
-      <div id="my-signin2"></div>
+    <div class="container">
+        <h2 class="active">Concesionaria</h2>
+        <h2 class="nonactive">Iniciar Sesión</h2>
+
+        <form>
+            Usuario:
+            <input type="text" name="usuario" required>
+            Contraseña:
+            <input type="password" name="contraseña" required>
+            <label>
+                <input type="checkbox" name="recordar"> Recuérdame
+            </label>
+            <input type="submit" value="Sign In">
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">¿Olvido su contraseña?</a>
+        </div>
+
+        <div class="google-signin-container">
+            <div id="my-signin2" class="signin"></div>
+        </div>
+
+        <div id="g_id_onload"
+            data-client_id="129581513867-bclrl11aah57s2av5k9mcbm1p8dipns1.apps.googleusercontent.com"
+            data-context="signin"
+            data-ux_mode="popup"
+            data-callback="handleCredentialResponse"
+            data-auto_prompt="false">
+        </div>
+
+        <div class="g_id_signin"
+            data-type="standard"
+            data-shape="rectangular"
+            data-theme="outline"
+            data-text="signin_with"
+            data-size="large"
+            data-logo_alignment="left">
+        </div>
+
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+        <div class="profile-info" style="display: none;">
+            <img id="user-photo" src="" alt="Profile Picture">
+            <p id="user-name"></p>
+            <p id="user-email"></p>
+        </div>
     </div>
+
     <script>
-        function onSuccess(googleUser) {
-          console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+        function parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
         }
-        function onFailure(error) {
-          console.log(error);
-        }
-        function renderButton() {
-          gapi.signin2.render('my-signin2', {
-            'scope': 'profile email',
-            'width': 240,
-            'height': 50,
-            'longtitle': true,
-            'theme': 'dark',
-            'onsuccess': onSuccess,
-            'onfailure': onFailure
-          });
-          const googleButton = document.querySelector('#my-signin2 div');
-          if (googleButton) {
-            googleButton.innerHTML = '<span style="margin-left: 10px;">Ingresar con cuenta de Google</span>';
-          }
+
+        function handleCredentialResponse(response) {
+            const profile = parseJwt(response.credential);
+            console.log(profile);
+
+            // Mostrar información del perfil
+            document.getElementById('user-photo').src = profile.picture;
+            document.getElementById('user-name').innerText = profile.name;
+            document.getElementById('user-email').innerText = profile.email;
+
+            // Mostrar la sección del perfil
+            document.querySelector('.profile-info').style.display = 'block';
         }
     </script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
 </html>

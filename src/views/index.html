@@ -144,29 +144,31 @@
             <input type="submit" value="Sign In">
         </form>
 
+        <div class="signin">
+            <button onclick="location.href='register.html'">Register</button>
+        </div>
+
         <div class="forgot-password">
             <a href="#">¿Olvido su contraseña?</a>
         </div>
 
         <div class="google-signin-container">
-            <div id="my-signin2" class="signin"></div>
-        </div>
+            <div id="g_id_onload"
+                data-client_id="129581513867-bclrl11aah57s2av5k9mcbm1p8dipns1.apps.googleusercontent.com"
+                data-context="signin"
+                data-ux_mode="popup"
+                data-callback="register"
+                data-auto_prompt="false">
+            </div>
 
-        <div id="g_id_onload"
-            data-client_id="129581513867-bclrl11aah57s2av5k9mcbm1p8dipns1.apps.googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="popup"
-            data-callback="register"
-            data-auto_prompt="false">
-        </div>
-
-        <div class="g_id_signin"
-            data-type="standard"
-            data-shape="rectangular"
-            data-theme="outline"
-            data-text="signin_with"
-            data-size="large"
-            data-logo_alignment="left">
+            <div class="g_id_signin"
+                data-type="standard"
+                data-shape="rectangular"
+                data-theme="outline"
+                data-text="signin_with"
+                data-size="large"
+                data-logo_alignment="left">
+            </div>
         </div>
 
         <script src="https://accounts.google.com/gsi/client" async defer></script>

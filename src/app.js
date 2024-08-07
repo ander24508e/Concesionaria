@@ -35,8 +35,12 @@ app.use("/especificar", especificaciones);
 app.use("/fabricar", fabricantes);
 app.use('/auth', usuarios);
 
-app.get('/login', (req,res) => {
+app.get('/auth/google', (req,res) => {
     res.sendFile(path.join(__dirname, "views", "index.html"))
+});
+
+app.get('/auth/google/register', (req,res) => {
+    res.sendFile(path.join(__dirname, "views", "register.html"))
 });
 
 app.listen(port, () =>{
